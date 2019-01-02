@@ -9,22 +9,59 @@
     <link rel="stylesheet" href="./css/bootstrap-grid.min.css">
     <link rel="shortcut icon" href="icons8-synchronize-512.png" type="image/x-icon">
     <body>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+        <!-- Card -->
+        <div class="wrap">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Цена" id="p">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Масса нетто в гр." id="m">
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Итого" id="s" readonly>
+                            </div>
+                        </div>
+                    </p>
+                </div>
             </div>
         </div>
+        <!-- Card end -->
 
-        <script src="./js/bootstrap.min.js"></script>
-        <script src="./js/bootstrap.bundle.min.js"></script>
-        <script src="./js/jquery-3.3.1.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                $("#1").text( $(window).height() )
-                $("#2").text( $(window).width() )
-            });
-        </script>
     </body>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script>
+        function onekilo(price, mass){
+            var summ = price * 1000 / mass;
+            return summ
+        };
+
+        $(document).ready(function(){
+            var card = $( ".wrap" ).html()
+            for (var index = 0; index < 9; index++) {
+                $( "body" ).append(card);
+            }
+            $.each($(".card"), function(index, item){
+                var price = $(item).find("#p").attr("id", "p"+index);
+                var mass = $(item).find("#m").attr("id", "m"+index);
+                var summ = $(item).find("#s").attr("id", "s"+index);
+                price.change(function(){
+                    var res = onekilo(price.val(), mass.val());
+                    summ.val(res + "за килограмм");
+                });
+                mass.change(function(){
+                    var res = onekilo(price.val(), mass.val());
+                    summ.val(res + " за 1 килограмм");
+                });
+            });
+        });
+    </script>
 </html>
