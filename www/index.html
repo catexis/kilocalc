@@ -7,7 +7,7 @@
     </head>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/bootstrap-grid.min.css">
-    <link rel="shortcut icon" href="icons8-synchronize-512.png" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <body>
 
         <!-- Card -->
@@ -55,7 +55,7 @@
                 var summ = $(item).find("#s").attr("id", "s"+index);
                 price.change(function(){
                     var res = onekilo(price.val(), mass.val());
-                    summ.val(res + "за килограмм");
+                    summ.val(res + "за 1 килограмм");
                 });
                 mass.change(function(){
                     var res = onekilo(price.val(), mass.val());

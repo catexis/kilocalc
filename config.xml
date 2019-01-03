@@ -6,6 +6,7 @@
     xmlns:gap="http://phonegap.com/ns/1.0">
 
     <name>Kilocalc</name>
+    <icon src="favicon.png" />
     <description>
         Подсчёт единицы продукта за килограмм
     </description>
