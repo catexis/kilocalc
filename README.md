@@ -28,7 +28,7 @@
 7.  Качаем и радуемся
 
 ## Скриншоты
-![Main screen](scrnshts\001.jpg)
+![Main screen](scrnshts/001.jpg)
 
 ## Лицензия
 Максимально свободная - MIT
